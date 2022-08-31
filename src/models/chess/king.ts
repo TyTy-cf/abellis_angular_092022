@@ -1,7 +1,6 @@
 
 import {Piece} from "./piece";
 import {Case} from "./case";
-import {Region} from "../geo-gouv/region";
 
 export class King extends Piece {
 

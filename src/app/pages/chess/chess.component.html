@@ -1,4 +1,12 @@
 
 <div class="container">
-
+  <div class="mt-5 mx-auto row chess-board">
+    <div *ngFor="let aCase of chessBoard.board"
+         (click)="chessBoard.move(aCase)"
+         [class.selected]="aCase.isSelected"
+         class="case {{aCase.color}}"
+    >
+      <img *ngIf="aCase.piece" [src]="aCase.piece.image" [alt]="aCase.piece.constructor">
+    </div>
+  </div>
 </div>
