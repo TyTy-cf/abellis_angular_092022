@@ -11,6 +11,7 @@ export class NavbarComponent {
     { path: 'counter', label: 'Compteur' },
     { path: 'chess/white', label: "Jeu d'échec (Blanc)" },
     { path: 'chess/black', label: "Jeu d'échec (Noir)" },
+    { path: 'games', label: "Les jeux" },
   ];
 
 }

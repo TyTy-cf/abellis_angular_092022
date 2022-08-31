@@ -7,6 +7,8 @@ import { CounterComponent } from './pages/counter/counter.component';
 import { ChessComponent } from './pages/chess/chess.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
+import {HttpClientModule} from "@angular/common/http";
+import { GameIndexComponent } from './pages/fake-steam/game-index/game-index.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { HomeComponent } from './pages/home/home.component';
     ChessComponent,
     NavbarComponent,
     HomeComponent,
+    GameIndexComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
