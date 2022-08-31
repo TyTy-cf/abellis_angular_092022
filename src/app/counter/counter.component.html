@@ -1,1 +1,32 @@
-<p>counter works!</p>
+
+<div class="container">
+
+  <div class="btn-group">
+    <button class="btn btn-danger"
+            (click)="changeCounter(-5)"
+    >
+      -5
+    </button>
+    <button class="btn btn-danger"
+            (click)="changeCounter(-1)">
+      -1
+    </button>
+    <div class="pt-2 px-3"
+         [class.bg-warning]="counter === 0"
+         [class.background-green]="counter > 0"
+         [class.background-red]="counter < 0"
+    >
+      <p>{{counter}}</p>
+    </div>
+    <button class="btn btn-success"
+            (click)="changeCounter(1)">
+      +1
+    </button>
+    <button class="btn btn-success"
+            (click)="changeCounter(5)"
+    >
+      +5
+    </button>
+  </div>
+
+</div>

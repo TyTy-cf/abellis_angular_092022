@@ -16,9 +16,10 @@
     <p>Nom : Toto</p>
     <p>Age : 42</p>
   </div>
-  <button (click)="displayOn = !displayOn"
-          [class.background-green]="!displayOn"
-          [class.background-red]="displayOn"
+  <button class="btn"
+          (click)="displayOn = !displayOn"
+          [class.btn-success]="!displayOn"
+          [class.btn-danger]="displayOn"
   >
     Masquer
   </button>

@@ -1,0 +1,38 @@
+
+$size-board: 640px;
+
+.chess-board {
+  width: $size-board;
+  height: $size-board;
+
+  .case {
+    width: calc(#{$size-board}/8);
+    height: calc(#{$size-board}/8);
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+
+    > img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+  }
+
+}
+
+.black {
+  background-color: #383838;
+}
+
+.white {
+  background-color: white;
+}
+
+.selected {
+  background-color: greenyellow;
+}
+
+.available {
+  background-color: hotpink;
+}
