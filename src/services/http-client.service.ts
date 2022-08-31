@@ -1,18 +1,17 @@
-import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IApiResponse} from "../models/fake-steam/i-api-response";
-import {Game} from "../models/fake-steam/game";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class HttpClientService {
+export abstract class HttpClientService<T> {
 
-  constructor(private httpClient: HttpClient) { }
+  protected constructor(
+    protected httpClient: HttpClient,
+    protected rawUrl: string,
+    protected model: string
+  ) { }
 
-  getRequest(): Observable<IApiResponse<Game>> {
-    return this.httpClient.get<IApiResponse<Game>>('https://steam-ish.test-02.drosalys.net/api/game?page=1&limit=9');
+  getEntities(page: number = 1, limit: number = 9): Observable<IApiResponse<T>> {
+    return this.httpClient.get<IApiResponse<T>>(this.rawUrl + this.model + '?page='+ page +'&limit=' + limit);
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClientService} from "../../../../services/http-client.service";
+import {HttpGameService} from "../../../../services/http-game.service";
 
 @Component({
   selector: 'app-game-index',
@@ -8,10 +8,10 @@ import {HttpClientService} from "../../../../services/http-client.service";
 })
 export class GameIndexComponent implements OnInit {
 
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private gameRepository: HttpGameService) { }
 
   ngOnInit(): void {
-    this.httpClientService.getRequest().subscribe((json) => {
+    this.gameRepository.getEntities().subscribe((json) => {
       console.log(json.items);
     });
   }

@@ -24,7 +24,12 @@ import { GameIndexComponent } from './pages/fake-steam/game-index/game-index.com
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'rawApiUrl',
+      useValue: 'https://steam-ish.test-02.drosalys.net/api/',
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
