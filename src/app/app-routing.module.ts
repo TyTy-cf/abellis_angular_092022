@@ -7,6 +7,7 @@ import {ChessComponent} from "./pages/chess/chess.component";
 const routes: Routes = [
   { path: 'counter', component: CounterComponent },
   { path: 'chess', component: ChessComponent },
+  { path: 'chess/:color', component: ChessComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent },
 ];

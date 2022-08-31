@@ -1,5 +1,8 @@
 
 <div class="container">
+
+  <h2 *ngIf="valueParam">{{valueParam}} commence !</h2>
+
   <div class="mt-5 mx-auto row chess-board">
     <div *ngFor="let aCase of chessBoard.board"
          (click)="chessBoard.move(aCase)"
