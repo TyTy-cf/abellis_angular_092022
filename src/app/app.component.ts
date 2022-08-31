@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'abellis_formation';
+
+  title: string = 'Abellis Formation Angular';
+  displayOn: boolean = true;
+  students: string[] = [
+    'Toto',
+    'Albert',
+    'Jean'
+  ];
+
+  getSubtitle(): string {
+    return 'A subtitle';
+  }
 }
