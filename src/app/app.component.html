@@ -1,42 +1,4 @@
 
-<h1>{{ title }}</h1>
-
-<p>{{ getSubtitle() }}</p>
-
-<hr>
-
-<a routerLink="/counter">
-  Compteur
-</a>
-
-<hr>
-
-<div>
-  <div *ngIf="displayOn; else hidden">
-    <p>Nom : Toto</p>
-    <p>Age : 42</p>
-  </div>
-  <button class="btn"
-          (click)="displayOn = !displayOn"
-          [class.btn-success]="!displayOn"
-          [class.btn-danger]="displayOn"
-  >
-    Masquer
-  </button>
-</div>
-
-<ng-template #hidden>
-  <p>Cliquer pour afficher les informations</p>
-</ng-template>
-
-<hr>
-
-<div>
-  <ul>
-    <li *ngFor="let student of students">
-      {{ student }}
-    </li>
-  </ul>
-</div>
+<app-navbar></app-navbar>
 
 <router-outlet></router-outlet>

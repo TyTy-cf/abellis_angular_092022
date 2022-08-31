@@ -7,15 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title: string = 'Abellis Formation Angular';
-  displayOn: boolean = true;
-  students: string[] = [
-    'Toto',
-    'Albert',
-    'Jean'
-  ];
-
-  getSubtitle(): string {
-    return 'A subtitle';
-  }
 }
