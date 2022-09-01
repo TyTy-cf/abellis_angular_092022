@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClientService} from "../../../../services/http-client.service";
+import {HttpGameService} from "../../../../services/http-game.service";
+import {IApiResponse} from "../../../../models/fake-steam/i-api-response";
+import {Game} from "../../../../models/fake-steam/game";
 
 @Component({
   selector: 'app-game-index',
@@ -8,11 +10,13 @@ import {HttpClientService} from "../../../../services/http-client.service";
 })
 export class GameIndexComponent implements OnInit {
 
-  constructor(private httpClientService: HttpClientService) { }
+  apiResponse: IApiResponse<Game> | undefined;
+
+  constructor(private httpClientService: HttpGameService) { }
 
   ngOnInit(): void {
-    this.httpClientService.getRequest().subscribe((json) => {
-      console.log(json.items);
+    this.httpClientService.findAll().subscribe((json) => {
+      this.apiResponse = json;
     });
   }
 
