@@ -1,6 +1,7 @@
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IApiResponse} from "../models/fake-steam/i-api-response";
+import {sprintf} from "sprintf-js";
 
 export abstract class HttpClientService<T> {
 
@@ -11,7 +12,7 @@ export abstract class HttpClientService<T> {
   ) { }
 
   findAll(page: number = 1, limit: number = 9): Observable<IApiResponse<T>> {
-    return this.httpClient.get<IApiResponse<T>>(this.rawApiUrl + this.model + '?page=' + page + '&limit=' + limit);
+    return this.httpClient.get<IApiResponse<T>>(sprintf('%s%s?page=%s&limit=%s', this.rawApiUrl, this.model, page, limit));
   }
 
   findOneBy(slug: string): Observable<any> {

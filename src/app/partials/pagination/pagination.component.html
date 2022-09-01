@@ -1,0 +1,32 @@
+
+<div *ngIf="currentPage && totalPages" class="d-flex justify-content-around my-3">
+
+  <button class="btn btn-info"
+          [disabled]="currentPage === 1"
+          (click)="eventPage.emit(1)"
+  >
+    First
+  </button>
+  <button class="btn btn-warning"
+          [disabled]="currentPage === 1"
+          (click)="eventPage.emit(currentPage - 1)"
+  >
+    Previous
+  </button>
+  <div>
+    #{{currentPage}}
+  </div>
+  <button class="btn btn-warning"
+          [disabled]="currentPage === totalPages"
+          (click)="eventPage.emit(currentPage + 1)"
+  >
+    Next
+  </button>
+  <button class="btn btn-info"
+          [disabled]="currentPage === totalPages"
+          (click)="eventPage.emit(totalPages)"
+  >
+    Last
+  </button>
+
+</div>

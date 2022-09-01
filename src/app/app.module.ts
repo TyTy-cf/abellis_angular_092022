@@ -9,6 +9,8 @@ import { NavbarComponent } from './common/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
 import { GameIndexComponent } from './pages/fake-steam/game-index/game-index.component';
+import { GameCardComponent } from './partials/game-card/game-card.component';
+import { PaginationComponent } from './partials/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { GameIndexComponent } from './pages/fake-steam/game-index/game-index.com
     NavbarComponent,
     HomeComponent,
     GameIndexComponent,
+    GameCardComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

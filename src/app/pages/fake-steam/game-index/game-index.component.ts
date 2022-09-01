@@ -15,9 +15,12 @@ export class GameIndexComponent implements OnInit {
   constructor(private httpClientService: HttpGameService) { }
 
   ngOnInit(): void {
-    this.httpClientService.findAll().subscribe((json) => {
+    this.updateDatas();
+  }
+
+  updateDatas(newPage: number = 1): void {
+    this.httpClientService.findAll(newPage).subscribe((json) => {
       this.apiResponse = json;
     });
   }
-
 }

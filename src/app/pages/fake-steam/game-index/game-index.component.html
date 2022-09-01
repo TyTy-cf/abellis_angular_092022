@@ -2,26 +2,25 @@
 <div class="container">
   <h1 class="my-4 text-center">Les jeux</h1>
   <div class="row" *ngIf="apiResponse; else noGames">
+    <ng-container *ngTemplateOutlet="pagination"></ng-container>
     <div class="card-game col-lg-4 col-md-6 py-2 px-5" *ngFor="let game of apiResponse.items">
-      <a routerLink="/games/{{game.slug}}">
-        <div class="container-image">
-          <img class="img-100" [src]="game.thumbnailCover" [alt]="game.name">
-          <div class="container-price">
-            <div class="price">
-              {{ game.price }}€
-            </div>
-          </div>
-        </div>
-        <div class="card-bottom">
-          <p class="text-center pt-1">
-            {{ game.name }}
-          </p>
-        </div>
-      </a>
+      <app-game-card [game]="game"></app-game-card>
     </div>
+    <ng-container *ngTemplateOutlet="pagination"></ng-container>
   </div>
 </div>
 
 <ng-template #noGames>
   <p class="mt-3">Jeux en cours de récupération...</p>
 </ng-template>
+
+<ng-template #pagination>
+  <app-pagination
+    *ngIf="apiResponse"
+    [currentPage]="apiResponse.page"
+    [totalPages]="apiResponse.totalPages"
+    (eventPage)="updateDatas($event)"
+  ></app-pagination>
+</ng-template>
+
+
