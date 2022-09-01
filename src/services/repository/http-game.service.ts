@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
-import {HttpClientService} from "./http-client.service";
-import {Game} from "../models/fake-steam/game";
+import {HttpClientService} from "../http-client.service";
+import {Game} from "../../models/fake-steam/game";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({

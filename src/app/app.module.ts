@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { GameIndexComponent } from './pages/fake-steam/game-index/game-index.component';
 import { GameCardComponent } from './partials/game-card/game-card.component';
 import { PaginationComponent } from './partials/pagination/pagination.component';
+import { AccountIndexComponent } from './pages/fake-steam/account-index/account-index.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PaginationComponent } from './partials/pagination/pagination.component'
     GameIndexComponent,
     GameCardComponent,
     PaginationComponent,
+    AccountIndexComponent,
   ],
   imports: [
     BrowserModule,

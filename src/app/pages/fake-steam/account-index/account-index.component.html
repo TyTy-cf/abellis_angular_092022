@@ -1,0 +1,50 @@
+
+<div class="container">
+
+  <h1 class="my-3 text-center">Les comptes</h1>
+
+  <ng-container *ngTemplateOutlet="pagination"></ng-container>
+
+  <table *ngIf="apiResponse" class="table table-striped table-hover table-dark">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Pseudo</th>
+        <th>Email</th>
+        <th>Solde</th>
+        <th>Date de création</th>
+        <th>Nb jeux</th>
+        <th>Nationalité</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of apiResponse.items">
+        <td>{{account.name}}</td>
+        <td>{{account.nickname}}</td>
+        <td>{{account.email}}</td>
+        <td>{{account.wallet}}€</td>
+        <td>{{account.createdAt | date:'d/m/Y' }}</td>
+        <td>{{ account.librariesCount }}</td>
+        <td>
+          <img *ngIf="account.country"
+               [src]="account.country.urlFlag"
+               [alt]="account.country.name"
+            >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngTemplateOutlet="pagination"></ng-container>
+
+</div>
+
+
+<ng-template #pagination>
+  <app-pagination
+    *ngIf="apiResponse"
+    [currentPage]="apiResponse.page"
+    [totalPages]="apiResponse.totalPages"
+    (eventPage)="updateDatas($event)"
+  ></app-pagination>
+</ng-template>

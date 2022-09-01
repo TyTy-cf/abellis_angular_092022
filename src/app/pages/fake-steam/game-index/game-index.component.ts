@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpGameService} from "../../../../services/http-game.service";
-import {IApiResponse} from "../../../../models/fake-steam/i-api-response";
+import {HttpGameService} from "../../../../services/repository/http-game.service";
+import {IApiResponse} from "../../../../models/fake-steam/interface/i-api-response";
 import {Game} from "../../../../models/fake-steam/game";
 
 @Component({

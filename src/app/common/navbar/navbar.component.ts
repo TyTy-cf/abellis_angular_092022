@@ -9,9 +9,9 @@ export class NavbarComponent {
 
   navbarLinks: Array<{path: string, label: string}> = [
     { path: 'counter', label: 'Compteur' },
-    { path: 'chess/white', label: "Jeu d'échec (Blanc)" },
-    { path: 'chess/black', label: "Jeu d'échec (Noir)" },
+    { path: 'chess', label: "Jeu d'échec" },
     { path: 'games', label: "Les jeux" },
+    { path: 'account', label: "Les comptes" },
   ];
 
 }
