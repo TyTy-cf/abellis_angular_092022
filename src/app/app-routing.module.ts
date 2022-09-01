@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'counter', component: CounterComponent },
   { path: 'chess', component: ChessComponent },
   { path: 'games', component: GameIndexComponent },
+  { path: 'games/:slug', component: GameIndexComponent },
   { path: 'chess/:color', component: ChessComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent },
