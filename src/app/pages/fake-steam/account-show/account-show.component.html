@@ -1,0 +1,79 @@
+
+<div class="container">
+
+  <div *ngIf="account; else noAccount">
+
+    <h1 class="my-3">{{account.name}}</h1>
+
+    <table class="table table-dark">
+      <tbody>
+        <tr>
+          <th>
+            Pseudo
+          </th>
+          <td>
+            {{account.nickname}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Email
+          </th>
+          <td>
+            {{account.email}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Solde
+          </th>
+          <td>
+            {{account.wallet}}€
+          </td>
+        </tr>
+        <tr *ngIf="account.country">
+          <th>
+            Pays d'origine
+          </th>
+          <td>
+            <img [src]="account.country.urlFlag" [alt]="account.country.name" [title]="account.country.nationality">
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Date de création
+          </th>
+          <td>
+            {{account.createdAt | date: 'dd/MM/Y'}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Temps de jeu total
+          </th>
+          <td>
+            {{ timeConverter.convertTimeToString(account.totalPlayedTime) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="my-3">Ses jeux</h2>
+
+    <div class="row" *ngIf="account.libraries.length > 0; else noGames">
+      <div class="card-game col-lg-4 col-md-6 py-2 px-5" *ngFor="let library of account.libraries">
+        <app-game-card [game]="library.game" [timePlayed]="library.gameTime"></app-game-card>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<ng-template #noAccount>
+  <p>En attente du serveur...</p>
+</ng-template>
+
+<ng-template #noGames>
+  <p>Cet utilisateur n'a pas de jeux dans sa bibliothèque</p>
+</ng-template>

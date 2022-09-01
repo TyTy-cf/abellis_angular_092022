@@ -15,6 +15,15 @@ export class Account {
   private _country: ICountry|undefined;
   private _comments: IComment[] = [];
   private _libraries: ILibrary[] = [];
+  private _totalPlayedTime: number = 0;
+
+  get totalPlayedTime(): number {
+    return this._totalPlayedTime;
+  }
+
+  set totalPlayedTime(value: number) {
+    this._totalPlayedTime = value;
+  }
 
   get id(): number {
     return this._id;
@@ -88,4 +97,19 @@ export class Account {
     this._country = value;
   }
 
+  get comments(): IComment[] {
+    return this._comments;
+  }
+
+  set comments(value: IComment[]) {
+    this._comments = value;
+  }
+
+  get libraries(): ILibrary[] {
+    return this._libraries;
+  }
+
+  set libraries(value: ILibrary[]) {
+    this._libraries = value;
+  }
 }

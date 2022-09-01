@@ -12,6 +12,7 @@ import { GameIndexComponent } from './pages/fake-steam/game-index/game-index.com
 import { GameCardComponent } from './partials/game-card/game-card.component';
 import { PaginationComponent } from './partials/pagination/pagination.component';
 import { AccountIndexComponent } from './pages/fake-steam/account-index/account-index.component';
+import { AccountShowComponent } from './pages/fake-steam/account-show/account-show.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AccountIndexComponent } from './pages/fake-steam/account-index/account-
     GameCardComponent,
     PaginationComponent,
     AccountIndexComponent,
+    AccountShowComponent,
   ],
   imports: [
     BrowserModule,

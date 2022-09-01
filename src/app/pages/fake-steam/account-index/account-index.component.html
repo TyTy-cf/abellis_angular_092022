@@ -23,7 +23,7 @@
         <td>{{account.nickname}}</td>
         <td>{{account.email}}</td>
         <td>{{account.wallet}}€</td>
-        <td>{{account.createdAt | date:'d/m/Y' }}</td>
+        <td>{{account.createdAt | date:'dd/MM/Y' }}</td>
         <td>{{ account.librariesCount }}</td>
         <td>
           <img *ngIf="account.country"
