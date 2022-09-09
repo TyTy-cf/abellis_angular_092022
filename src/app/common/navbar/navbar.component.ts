@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  searchValue: string = '';
+
   navbarLinks: Array<{path: string, label: string}> = [
     { path: 'counter', label: 'Compteur' },
     { path: 'chess', label: "Jeu d'échec" },
@@ -15,4 +17,7 @@ export class NavbarComponent {
     { path: 'account/register', label: "Inscription" },
   ];
 
+  sendSearch(): void {
+    console.log(this.searchValue);
+  }
 }

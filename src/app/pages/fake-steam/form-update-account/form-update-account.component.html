@@ -21,7 +21,20 @@
         </div>
       </div>
     </div>
-    <button class="btn btn-primary mt-3"
+    <div class="form-group my-3">
+      <label class="form-label">Pays d'origine</label>
+      <select class="form-select"
+              formControlName="country"
+      >
+        <option selected value=""></option>
+        <option *ngFor="let country of countries"
+                [ngValue]="country"
+        >
+          {{country.name}}
+        </option>
+      </select>
+    </div>
+    <button class="btn btn-primary"
             (click)="onSubmit()"
             [disabled]="formGroupAccount.invalid"
     >
