@@ -26,11 +26,10 @@
       <select class="form-select"
               formControlName="country"
       >
-        <option selected value=""></option>
-        <option *ngFor="let country of countries"
-                [ngValue]="country"
+        <option *ngFor="let countryIteration of countries"
+                [ngValue]="countryIteration"
         >
-          {{country.name}}
+          {{countryIteration.name}}
         </option>
       </select>
     </div>

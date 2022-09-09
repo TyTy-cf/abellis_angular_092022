@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Account} from "../../../../models/fake-steam/account";
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpCountryService} from "../../../../services/repository/http-country.service";
@@ -11,23 +11,30 @@ import {ICountry} from "../../../../models/fake-steam/interface/i-country";
 })
 export class FormUpdateAccountComponent implements OnInit {
 
+  @Input()
   account: Account = new Account();
+
   formGroupAccount!: FormGroup;
   countries: ICountry[] = [];
 
   constructor(
     private countryRepository: HttpCountryService
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
     this.countryRepository.findAll(1, 12).subscribe((json) => {
       this.countries = json.items;
+      // Force par défaut la valeur pour le select du pays => utilisation d'un ngValue dans l'HTML
+      // Bien le laisser dans le subscribe !
+      this.country.setValue(this.countries.find(
+        country => country.name === this.account?.country?.name
+      ));
     });
   }
 
   initForm(): void {
+    console.log(this.account?.country);
     this.formGroupAccount = new FormGroup({
       nickname: new FormControl(
         this.account.nickname, [
@@ -59,7 +66,7 @@ export class FormUpdateAccountComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.formGroupAccount.valid) {
+    if (this.formGroupAccount.valid && this.account) {
       this.account.country = this.country.value;
       this.account.nickname = this.nickname.value;
       // this.account = this.formGroupAccount.value;
