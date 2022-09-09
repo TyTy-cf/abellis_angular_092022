@@ -1,38 +1,18 @@
 
 <div class="container">
-
-  <h1 class="my-3">{{ title }}</h1>
-
-  <p>{{ getSubtitle() }}</p>
-
-  <hr>
-
-  <div>
-    <div *ngIf="displayOn; else hidden">
-      <p>Nom : Toto</p>
-      <p>Age : 42</p>
+  <h1 class="my-4 text-center">Les jeux</h1>
+  <div class="row">
+    <h2>Les dernières sorties</h2>
+    <div class="card-game col-lg-4 col-md-6 py-2 px-5" *ngFor="let game of lastPublishedGames">
+      <app-game-card [game]="game"></app-game-card>
     </div>
-    <button class="btn"
-            (click)="displayOn = !displayOn"
-            [class.btn-success]="!displayOn"
-            [class.btn-danger]="displayOn"
-    >
-      Masquer
-    </button>
+    <h2>Les best-sellers</h2>
+    <div class="card-game col-lg-4 col-md-6 py-2 px-5" *ngFor="let game of alphaGames">
+      <app-game-card [game]="game"></app-game-card>
+    </div>
+    <h2>Les tendances du moment</h2>
+    <div class="card-game col-lg-4 col-md-6 py-2 px-5" *ngFor="let game of pricesGames">
+      <app-game-card [game]="game"></app-game-card>
+    </div>
   </div>
-
-  <ng-template #hidden>
-    <p>Cliquer pour afficher les informations</p>
-  </ng-template>
-
-  <hr>
-
-  <div>
-    <ul>
-      <li *ngFor="let student of students">
-        {{ student }}
-      </li>
-    </ul>
-  </div>
-
 </div>

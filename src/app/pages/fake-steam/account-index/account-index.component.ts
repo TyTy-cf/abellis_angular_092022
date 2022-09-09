@@ -19,7 +19,7 @@ export class AccountIndexComponent implements OnInit {
   }
 
   updateDatas(page: number): void {
-    this.httpAccount.findAll(page, 15).subscribe((json) => {
+    this.httpAccount.findAll(page, 15, 'sort=account.name&direction=ASC').subscribe((json) => {
       this.apiResponse = json;
     });
   }

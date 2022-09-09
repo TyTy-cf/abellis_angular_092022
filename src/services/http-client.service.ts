@@ -19,7 +19,6 @@ export abstract class HttpClientService<T> {
   ) { }
 
   findAll(page: number = 1, limit: number = 9, filter: string = ''): Observable<IApiResponse<T>> {
-    console.log(sprintf('%s%s?%spage=%s&limit=%s', this.rawApiUrl, this.model, filter, page, limit));
     return this.httpClient.get<IApiResponse<T>>(sprintf('%s%s?page=%s&limit=%s&%s', this.rawApiUrl, this.model, page, limit, filter));
   }
 

@@ -30,7 +30,7 @@ export class FormUpdateAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.countryRepository.findAll(1, 12, 'sort=country.name&direction=ASC&').subscribe((json) => {
+    this.countryRepository.findAll(1, 12, 'sort=country.name&direction=ASC').subscribe((json) => {
       this.countries = json.items;
       // Force par défaut la valeur pour le select du pays => utilisation d'un ngValue dans l'HTML
       // Bien le laisser dans le subscribe !
