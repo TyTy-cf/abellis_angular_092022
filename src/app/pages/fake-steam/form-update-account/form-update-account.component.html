@@ -26,6 +26,7 @@
       <select class="form-select"
               formControlName="country"
       >
+        <option [ngValue]="null"></option>
         <option *ngFor="let countryIteration of countries"
                 [ngValue]="countryIteration"
         >

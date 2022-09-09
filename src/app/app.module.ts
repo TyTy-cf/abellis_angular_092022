@@ -16,6 +16,7 @@ import { AccountShowComponent } from './pages/fake-steam/account-show/account-sh
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormCreateAccountComponent } from './pages/fake-steam/form-create-account/form-create-account.component';
 import { FormUpdateAccountComponent } from './pages/fake-steam/form-update-account/form-update-account.component';
+import { FormPublisherComponent } from './pages/fake-steam/form-publisher/form-publisher.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormUpdateAccountComponent } from './pages/fake-steam/form-update-accou
     AccountShowComponent,
     FormCreateAccountComponent,
     FormUpdateAccountComponent,
+    FormPublisherComponent,
   ],
   imports: [
     BrowserModule,

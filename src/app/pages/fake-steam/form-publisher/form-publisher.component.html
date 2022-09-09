@@ -1,0 +1,41 @@
+
+<div class="container">
+
+  <form class="mx-auto col-8 mt-3" [formGroup]="formGroupPublisher">
+    <div class="form-group">
+      <label class="form-label required">Nom</label>
+      <input class="form-control {{ getCssClassForField('name') }}"
+             formControlName="name"
+      >
+      <div class="invalid-feedback" *ngIf="isFieldOnErrors('name') && getFields('name').errors">
+        Le nom est obligatoire
+      </div>
+    </div>
+    <div class="form-group my-3">
+      <label class="form-label required">Site Web</label>
+      <input class="form-control {{ getCssClassForField('name') }}d"
+             formControlName="website"
+      >
+      <div class="invalid-feedback" *ngIf="isFieldOnErrors('website') && getFields('website').errors">
+        Le Site Web est obligatoire
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Pays d'origine</label>
+      <select class="form-select"
+              formControlName="country"
+      >
+        <option [ngValue]="null"></option>
+        <option *ngFor="let countryIteration of countries"
+                [ngValue]="countryIteration"
+        >
+          {{countryIteration.name}}
+        </option>
+      </select>
+    </div>
+    <button class="btn btn-primary mt-3" (click)="onSubmit()" [disabled]="formGroupPublisher.invalid">
+     Créer
+    </button>
+  </form>
+
+</div>

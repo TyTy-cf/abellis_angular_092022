@@ -15,6 +15,7 @@ export class NavbarComponent {
     { path: 'games', label: "Les jeux" },
     { path: 'account', label: "Les comptes" },
     { path: 'account/register', label: "Inscription" },
+    { path: 'publisher/new', label: "Ajouter éditeur" },
   ];
 
   sendSearch(): void {

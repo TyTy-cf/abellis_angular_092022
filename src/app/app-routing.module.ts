@@ -7,6 +7,7 @@ import {GameIndexComponent} from "./pages/fake-steam/game-index/game-index.compo
 import {AccountIndexComponent} from "./pages/fake-steam/account-index/account-index.component";
 import {AccountShowComponent} from "./pages/fake-steam/account-show/account-show.component";
 import {FormCreateAccountComponent} from "./pages/fake-steam/form-create-account/form-create-account.component";
+import {FormPublisherComponent} from "./pages/fake-steam/form-publisher/form-publisher.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'account', component: AccountIndexComponent },
   { path: 'account/register', component: FormCreateAccountComponent },
   { path: 'account/:slug', component: AccountShowComponent },
+  { path: 'publisher/new', component: FormPublisherComponent },
   { path: '**', component: HomeComponent },
 ];
 
