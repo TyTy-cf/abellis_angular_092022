@@ -21,11 +21,7 @@ export class FormCreateAccountComponent {
   }
 
   onSubmit(): void {
-    this.accountRepository.persistFlush({
-      name: this.account.name,
-      email: this.account.email,
-      nickname: this.account.nickname,
-    })
+    this.accountRepository.persistFlush(this.account)
     .pipe(
       catchError(err => {
         this.apiErrors = err.error.detail;

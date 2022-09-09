@@ -1,8 +1,10 @@
 import {ICountry} from "./interface/i-country";
 import {ILibrary} from "./interface/i-library";
 import {IComment} from "./interface/i-comment";
+import {IPostItem} from "./interface/i-post-item";
+import {IPutItem} from "./interface/i-put-item";
 
-export class Account {
+export class Account implements IPostItem, IPutItem {
 
   private _id: number = 0;
   private _name: string = '';
@@ -111,5 +113,22 @@ export class Account {
 
   set libraries(value: ILibrary[]) {
     this._libraries = value;
+  }
+
+  getPostItem(): any {
+    return {
+      name: this.name,
+      email: this.email,
+      nickname: this.nickname,
+    };
+  }
+
+  getPutItem(): any {
+    return {
+      nickname: this.nickname,
+      country: {
+        slug: this.country?.slug
+      }
+    };
   }
 }

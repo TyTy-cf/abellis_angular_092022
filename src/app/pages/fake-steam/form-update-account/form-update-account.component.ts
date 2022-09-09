@@ -22,6 +22,7 @@ export class FormUpdateAccountComponent implements OnInit {
   formGroupAccount!: FormGroup;
   countries: ICountry[] = [];
   apiErrors: string = '';
+  id: number = 0;
 
   constructor(
     private countryRepository: HttpCountryService,
@@ -29,6 +30,7 @@ export class FormUpdateAccountComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.id = this.account.id;
     this.initForm();
     this.countryRepository.findAll(1, 12, 'sort=country.name&direction=ASC').subscribe((json) => {
       this.countries = json.items;
@@ -73,13 +75,14 @@ export class FormUpdateAccountComponent implements OnInit {
 
   onSubmit(): void {
     if (this.formGroupAccount.valid && this.account) {
+      // this.account = this.formGroupAccount.value;
+      this.account = new Account();
       this.account.country = this.country.value;
       this.account.nickname = this.nickname.value;
-      // this.account = this.formGroupAccount.value;
-      this.accountRepository.update({
-        nickname: this.account.nickname,
-        country: { slug: this.account.country?.slug }
-      }, this.account.id)
+      console.log(this.account);
+      console.log(this.id);
+
+      this.accountRepository.update(this.account, this.id)
       .pipe(
         catchError(err => {
           this.apiErrors = err.error.detail;
