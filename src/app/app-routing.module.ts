@@ -6,6 +6,7 @@ import {ChessComponent} from "./pages/chess/chess.component";
 import {GameIndexComponent} from "./pages/fake-steam/game-index/game-index.component";
 import {AccountIndexComponent} from "./pages/fake-steam/account-index/account-index.component";
 import {AccountShowComponent} from "./pages/fake-steam/account-show/account-show.component";
+import {FormCreateAccountComponent} from "./pages/fake-steam/form-create-account/form-create-account.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'games', component: GameIndexComponent },
   { path: 'games/:slug', component: GameIndexComponent },
   { path: 'account', component: AccountIndexComponent },
+  { path: 'account/register', component: FormCreateAccountComponent },
   { path: 'account/:slug', component: AccountShowComponent },
   { path: '**', component: HomeComponent },
 ];

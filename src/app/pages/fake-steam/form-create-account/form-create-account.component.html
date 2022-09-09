@@ -1,0 +1,80 @@
+
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #formAccount="ngForm" class="mt-5 col-8 mx-auto">
+    <div class="form-group">
+      <label class="form-label required">Nom</label>
+      <input  type="text"
+              class="form-control"
+              name="account[name]"
+              [(ngModel)]="account.name"
+              #accountName="ngModel"
+              [class.is-invalid]="(accountName.touched || accountName.dirty) && accountName.invalid"
+              [class.is-valid]="accountName.valid"
+              minlength="4"
+              required
+      >
+      <div class="invalid-feedback"
+           *ngIf="(accountName.touched || accountName.dirty) && accountName.invalid && accountName.errors"
+      >
+        <div *ngIf="accountName.errors['required']">
+          Le nom est obligatoire
+        </div>
+        <div *ngIf="accountName.errors['minlength']">
+          Le nom de compte doit faire au moins 4 caractères
+        </div>
+      </div>
+    </div>
+    <div class="form-group my-3">
+      <label class="form-label required">Email</label>
+      <input  type="email"
+              class="form-control"
+              name="account[email]"
+              [(ngModel)]="account.email"
+              #accountEmail="ngModel"
+              [class.is-invalid]="(accountEmail.touched || accountEmail.dirty) && accountEmail.invalid"
+              [class.is-valid]="accountEmail.valid"
+              pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+              required
+      >
+      <div class="invalid-feedback"
+           *ngIf="(accountEmail.touched || accountEmail.dirty) && accountEmail.invalid && accountEmail.errors"
+      >
+        <div *ngIf="accountEmail.errors['required']">
+          L'email est obligatoire
+        </div>
+        <div *ngIf="accountEmail.errors['pattern']">
+          Veuillez saisir un email valide
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label required">Pseudo</label>
+      <input  type="text"
+              class="form-control"
+              name="account[nickname]"
+              [(ngModel)]="account.nickname"
+              #accountNickname="ngModel"
+              [class.is-invalid]="(accountNickname.touched || accountNickname.dirty) && accountNickname.invalid"
+              [class.is-valid]="accountNickname.valid"
+              minlength="4"
+              required
+      >
+      <div class="invalid-feedback"
+           *ngIf="(accountNickname.touched || accountNickname.dirty) && accountNickname.invalid && accountNickname.errors"
+      >
+        <div *ngIf="accountNickname.errors['required']">
+          Le pseudo est obligatoire
+        </div>
+        <div *ngIf="accountNickname.errors['minlength']">
+          Le pseudo doit faire au moins 4 caractères
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary mt-3"
+            type="submit"
+            *ngIf="formAccount.valid"
+    >
+      Créer son compte
+    </button>
+  </form>
+</div>

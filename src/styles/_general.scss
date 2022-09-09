@@ -7,3 +7,11 @@ body {
 .router-link {
   cursor: pointer;
 }
+
+.required {
+  &::after {
+    content: '*';
+    color: red;
+    margin-left: 0.3em;
+  }
+}

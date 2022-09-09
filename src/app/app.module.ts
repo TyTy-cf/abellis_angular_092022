@@ -13,6 +13,8 @@ import { GameCardComponent } from './partials/game-card/game-card.component';
 import { PaginationComponent } from './partials/pagination/pagination.component';
 import { AccountIndexComponent } from './pages/fake-steam/account-index/account-index.component';
 import { AccountShowComponent } from './pages/fake-steam/account-show/account-show.component';
+import {FormsModule} from "@angular/forms";
+import { FormCreateAccountComponent } from './pages/fake-steam/form-create-account/form-create-account.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,13 @@ import { AccountShowComponent } from './pages/fake-steam/account-show/account-sh
     PaginationComponent,
     AccountIndexComponent,
     AccountShowComponent,
+    FormCreateAccountComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     {

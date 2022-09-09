@@ -12,6 +12,7 @@ export class NavbarComponent {
     { path: 'chess', label: "Jeu d'échec" },
     { path: 'games', label: "Les jeux" },
     { path: 'account', label: "Les comptes" },
+    { path: 'account/register', label: "Inscription" },
   ];
 
 }
