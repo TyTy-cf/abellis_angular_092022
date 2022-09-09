@@ -76,9 +76,8 @@
     >
       Créer son compte
     </button>
+    <div class="text-danger" *ngIf="apiErrors">
+      {{ apiErrors }}
+    </div>
   </form>
-
-  <p>
-    {{account.nickname}}
-  </p>
 </div>

@@ -1,8 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Account} from "../../../../models/fake-steam/account";
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpCountryService} from "../../../../services/repository/http-country.service";
 import {ICountry} from "../../../../models/fake-steam/interface/i-country";
+import {HttpAccountService} from "../../../../services/repository/http-account.service";
+import {catchError, throwError} from "rxjs";
 
 @Component({
   selector: 'app-form-update-account',
@@ -14,11 +16,16 @@ export class FormUpdateAccountComponent implements OnInit {
   @Input()
   account: Account = new Account();
 
+  @Output()
+  eventCancelEdit: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   formGroupAccount!: FormGroup;
   countries: ICountry[] = [];
+  apiErrors: string = '';
 
   constructor(
-    private countryRepository: HttpCountryService
+    private countryRepository: HttpCountryService,
+    private accountRepository: HttpAccountService
   ) { }
 
   ngOnInit(): void {
@@ -69,6 +76,19 @@ export class FormUpdateAccountComponent implements OnInit {
       this.account.country = this.country.value;
       this.account.nickname = this.nickname.value;
       // this.account = this.formGroupAccount.value;
+      this.accountRepository.update({
+        nickname: this.account.nickname,
+        country: { slug: this.account.country?.slug }
+      }, this.account.id)
+      .pipe(
+        catchError(err => {
+          this.apiErrors = err.error.detail;
+          return throwError(err);
+        })
+      )
+      .subscribe((jsonAccount) => {
+        this.eventCancelEdit.emit(false);
+      });
     } else {
       console.log("Arrête d'essayer de trafiquer le form !!!!");
     }

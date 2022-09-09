@@ -77,7 +77,11 @@
 </div>
 
 <ng-template #formEdit>
-  <app-form-update-account *ngIf="account" [account]="account"></app-form-update-account>
+  <app-form-update-account *ngIf="account"
+                           [account]="account"
+                           (eventCancelEdit)="onEdit = $event"
+  >
+  </app-form-update-account>
 </ng-template>
 
 <ng-template #noAccount>

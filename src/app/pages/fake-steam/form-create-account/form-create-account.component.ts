@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {Account} from "../../../../models/fake-steam/account";
+import {HttpAccountService} from "../../../../services/repository/http-account.service";
+import {catchError, throwError} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-create-account',
@@ -9,8 +12,28 @@ import {Account} from "../../../../models/fake-steam/account";
 export class FormCreateAccountComponent {
 
   account: Account = new Account();
+  apiErrors: string = '';
+
+  constructor(
+    private accountRepository: HttpAccountService,
+    private router: Router
+  ) {
+  }
 
   onSubmit(): void {
-    console.log(this.account);
+    this.accountRepository.persistFlush({
+      name: this.account.name,
+      email: this.account.email,
+      nickname: this.account.nickname,
+    })
+    .pipe(
+      catchError(err => {
+        this.apiErrors = err.error.detail;
+        return throwError(err);
+      })
+    )
+    .subscribe((jsonAccount) => {
+      this.router.navigateByUrl('/account/' + jsonAccount.slug).then(r => console.log(r) );
+    });
   }
 }
