@@ -4,8 +4,11 @@
   <div *ngIf="account; else noAccount">
 
     <h1 class="my-3">{{account.name}}</h1>
+    <button class="btn btn-warning my-3" (click)="onEdit = !onEdit">
+      Modifier son compte
+    </button>
 
-    <table class="table table-dark">
+    <table class="table table-dark" *ngIf="!onEdit; else formEdit">
       <tbody>
         <tr>
           <th>
@@ -69,6 +72,10 @@
   </div>
 
 </div>
+
+<ng-template #formEdit>
+  <app-form-update-account></app-form-update-account>
+</ng-template>
 
 <ng-template #noAccount>
   <p>En attente du serveur...</p>

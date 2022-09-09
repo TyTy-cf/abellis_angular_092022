@@ -12,6 +12,7 @@ import {TimeConverterService} from "../../../../services/time-converter.service"
 export class AccountShowComponent implements OnInit {
 
   account: Account | undefined;
+  onEdit: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,

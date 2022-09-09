@@ -13,8 +13,9 @@ import { GameCardComponent } from './partials/game-card/game-card.component';
 import { PaginationComponent } from './partials/pagination/pagination.component';
 import { AccountIndexComponent } from './pages/fake-steam/account-index/account-index.component';
 import { AccountShowComponent } from './pages/fake-steam/account-show/account-show.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormCreateAccountComponent } from './pages/fake-steam/form-create-account/form-create-account.component';
+import { FormUpdateAccountComponent } from './pages/fake-steam/form-update-account/form-update-account.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,14 @@ import { FormCreateAccountComponent } from './pages/fake-steam/form-create-accou
     AccountIndexComponent,
     AccountShowComponent,
     FormCreateAccountComponent,
+    FormUpdateAccountComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

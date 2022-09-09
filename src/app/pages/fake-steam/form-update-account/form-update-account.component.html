@@ -1,0 +1,32 @@
+
+<div class="container">
+
+  <form [formGroup]="formGroupAccount" class="mt-5 col-8 mx-auto">
+    <div class="form-group">
+      <label class="form-label required">Pseudo</label>
+      <input  type="text"
+              class="form-control"
+              formControlName="nickname"
+              [class.is-invalid]="isFieldOnErrors('nickname')"
+              [class.is-valid]="nickname.valid"
+      >
+      <div class="invalid-feedback"
+           *ngIf="isFieldOnErrors('nickname') && nickname.errors"
+      >
+        <div *ngIf="nickname.errors['required']">
+          Le pseudo est obligatoire
+        </div>
+        <div *ngIf="nickname.errors['minlength']">
+          Le pseudo doit faire au moins 4 caractères
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary mt-3"
+            (click)="onSubmit()"
+            [disabled]="formGroupAccount.invalid"
+    >
+      Modifier son compte
+    </button>
+  </form>
+
+</div>
